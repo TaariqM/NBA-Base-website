@@ -1,0 +1,38 @@
+.button-container,
+.logo-container {
+  /*ensures both button-container and logo-container have the same styling*/
+  width: 100%;
+  height: fit-content;
+  /* border: 1px solid red; */
+  display: flex; /*gets the alignment rules ready*/
+  flex-direction: row;
+  justify-content: center; /*centers everything row wise. Align on x axis*/
+  align-items: center; /*align container on the y axis*/
+}
+
+.button-container > div {
+  margin-top: 30px;
+}
+
+.button-container > div:first-child {
+  margin-right: 30px;
+}
+
+.button-container > div:last-child {
+  margin-left: 30px;
+}
+
+.logo-container > img {
+  width: 72%;
+}
+
+.button-container > div > .button-container__link {
+  background: none;
+  font-size: 32px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.button-container > div > .button-container__link:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
