@@ -18,6 +18,8 @@ function App() {
           <HomePage />
         </Route>
         <Route exact path="/search/:page">
+          {" "}
+          {/*The '?' means that this variable is optional*/}
           <SearchPage />
         </Route>
       </BrowserRouter>

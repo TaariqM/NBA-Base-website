@@ -1,47 +1,92 @@
 .searchpage {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   position: relative;
 }
 
-.searchpage > .searchpage__input-group {
+.searchpage__input-group {
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-bottom: 30px;
 }
 
-.searchpage > .searchpage__input-group > input {
+.searchpage__input-group input {
+  /*if theres a '>', its the first child, otherwise it can be any child, grandchild, etc*/
   width: 50%;
   height: 64px;
   margin-top: 30px;
   border-radius: 8px;
   /* border: 1px solid lightgrey; */
   border: none;
-  box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25); /*first number is the top padding, second is bottom padding and third is how far the shadow will go*/
+  -webkit-box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+  /*first number is the top padding, second is bottom padding and third is how far the shadow will go*/
   font-size: 20px;
   padding-left: 24px;
   padding-right: 24px;
 }
 
-.searchpage > .searchpage__results {
+.searchpage__input-group form {
+  width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.searchpage__results {
   position: absolute;
   width: 50%;
   top: 94px;
   /* padding: 8px; */
   background: white;
-  box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
 
-.searchpage > .searchpage__results > button {
+.searchpage__results > button {
   padding: 16px;
   width: 100%;
   text-align: left;
@@ -49,6 +94,25 @@
   background: none;
 }
 
-.searchpage > .searchpage__results > button:hover {
+.searchpage__results > button:hover {
   background: lightgrey;
 }
+
+.searchpage__details {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=SearchPage.css.map */

@@ -1,0 +1,17 @@
+.segment {
+  height: 171px;
+  left: 0px;
+  top: 0px;
+  background: #c43c3c;
+
+  &__nba-header {
+    padding-top: 45px;
+    font-family: "Kanit";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 75px;
+    text-align: center;
+    color: #000000;
+  }
+}

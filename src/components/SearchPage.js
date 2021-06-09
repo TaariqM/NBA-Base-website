@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../css/SearchPage.css";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import SearchBar from "./SearchBar";
+import SearchPlayerResults from "./SearchPlayerResults";
+import SearchTeamResults from "./SearchTeamResults";
 
 const SearchPage = () => {
   const { page } = useParams();
@@ -9,6 +11,25 @@ const SearchPage = () => {
   const [players, setPlayers] = useState();
   const [searchTeams, setSearchTeams] = useState("");
   const [searchPlayers, setSearchPlayers] = useState("");
+  const history = useHistory();
+  const ref = useRef();
+  const formRef = useRef();
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    document.addEventListener("mouseup", handleClickAway);
+    return () => {
+      document.removeEventListener("mouseup", handleClickAway);
+      //removes the event listener when the component unmounts(meaning when youre not on the search page)
+    };
+  }, []); //this array means that whenever an item in this array is updated, this component will refresh
+
+  const handleClickAway = (e) => {
+    if (!ref.current.contains(e.target)) {
+      setPlayers(null);
+      setTeams(null);
+    }
+  };
 
   const handleTeamChange = (e) => {
     setSearchTeams(e.target.value);
@@ -24,10 +45,11 @@ const SearchPage = () => {
       }
     )
       .then((response) => response.json())
-      .then((data) => setTeams(data.response.slice(0, 10)))
+      .then((data) => setTeams(data.response.slice(0, 10).reverse()))
       .catch((err) => {
         console.error(err);
       });
+    //.filter((team) => team.)
   };
 
   const handlePlayerChange = (e) => {
@@ -39,7 +61,8 @@ const SearchPage = () => {
       }
     )
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => setPlayers(data.data))
+      // .then((data) => console.log(data.data))
       .catch((err) => {
         console.error(err);
       });
@@ -51,12 +74,41 @@ const SearchPage = () => {
 
   const handlePlayerClick = (e) => {
     setSearchPlayers(e.target.value);
+    // formRef.current.submit();
+    history.push(`/search/players/${e.target.value}`);
+    setPlayers(null);
   };
 
+  const handlePlayerSubmit = (e) => {
+    e.preventDefault();
+    //console.log(e);
+    //console.log(e.target[0].value);
+    //history.push(`/search/players/${e.target[0].value}`);
+    setResults(players);
+    setPlayers(null);
+  };
+
+  const handleTeamSubmit = (e) => {
+    e.preventDefault();
+    // console.log(e.target[0].value);
+    // history.push(`/search/teams/${e.target[0].value}`);
+    setResults(teams);
+    setTeams(null);
+  };
+
+  //const updatedArray = () => {
+  // const updatedPlayers = results.shift();
+  // const newArr = updatedPlayers.slice(1, updatedPlayers.length + 1);
+  //const first = Object.keys(results)[0];
+  //delete results[first];
+  //};
+
   return page === "teams" ? (
-    <div className="searchpage">
+    <div className="searchpage" ref={ref}>
       <div className="searchpage__input-group">
         <SearchBar
+          ref={formRef}
+          handleSubmit={handleTeamSubmit}
           search={searchTeams}
           handleChange={handleTeamChange}
           placeholder="Search for Teams"
@@ -69,27 +121,38 @@ const SearchPage = () => {
         className="searchpage__results"
       >
         {teams
-          ? teams.map((team) => (
-              <button value={team.name} onClick={handleTeamClick}>
+          ? teams.map((team, index) => (
+              <button key={index} value={team.name} onClick={handleTeamClick}>
                 {team.name}
               </button>
             ))
           : null}
       </div>
+      <div className="searchpage__details">
+        <SearchTeamResults teamResults={results} />
+      </div>
     </div>
   ) : (
-    <div className="searchpage">
+    <div className="searchpage" ref={ref}>
       <div className="searchpage__input-group">
         <SearchBar
+          ref={formRef}
           search={searchPlayers}
           handleChange={handlePlayerChange}
+          handleSubmit={handlePlayerSubmit}
           placeholder="Search for Players"
         />
       </div>
-      <div className="searchpage__results">
+      <div
+        style={{
+          height: !players || players.length !== 0 ? "fit-content" : 0,
+        }}
+        className="searchpage__results"
+      >
         {players
-          ? players.map((player) => (
+          ? players.map((player, index) => (
               <button
+                key={index}
                 value={`${player.first_name} ${player.last_name}`}
                 onClick={handlePlayerClick}
               >
@@ -97,6 +160,10 @@ const SearchPage = () => {
               </button>
             ))
           : null}
+      </div>
+      <div className="searchpage__details">
+        <SearchPlayerResults playerResults={results} />{" "}
+        {/**Changed from results to updatedPlayers. Now I changed 'results' to 'newArr' */}
       </div>
     </div>
   );

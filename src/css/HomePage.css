@@ -2,12 +2,26 @@
 .logo-container {
   /*ensures both button-container and logo-container have the same styling*/
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
   /* border: 1px solid red; */
-  display: flex; /*gets the alignment rules ready*/
-  flex-direction: row;
-  justify-content: center; /*centers everything row wise. Align on x axis*/
-  align-items: center; /*align container on the y axis*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /*gets the alignment rules ready*/
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /*centers everything row wise. Align on x axis*/
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /*align container on the y axis*/
 }
 
 .button-container > div {
@@ -22,17 +36,18 @@
   margin-left: 30px;
 }
 
-.logo-container > img {
-  width: 72%;
-}
-
-.button-container > div > .button-container__link {
+.button-container__link {
   background: none;
   font-size: 32px;
   font-weight: 700;
   color: rgba(0, 0, 0, 0.25);
 }
 
-.button-container > div > .button-container__link:hover {
+.button-container__link:hover {
   color: rgba(0, 0, 0, 0.5);
 }
+
+.logo-container > img {
+  width: 72%;
+}
+/*# sourceMappingURL=HomePage.css.map */

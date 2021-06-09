@@ -1,0 +1,74 @@
+.searchpage {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+
+  &__input-group {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+
+    input {
+      /*if theres a '>', its the first child, otherwise it can be any child, grandchild, etc*/
+      width: 50%;
+      height: 64px;
+      margin-top: 30px;
+      border-radius: 8px;
+      /* border: 1px solid lightgrey; */
+      border: none;
+      box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25); /*first number is the top padding, second is bottom padding and third is how far the shadow will go*/
+      font-size: 20px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    form {
+      width: 100%;
+      height: fit-content;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+  }
+
+  &__results {
+    position: absolute;
+    width: 50%;
+    top: 94px;
+    /* padding: 8px; */
+    background: white;
+    box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    > button {
+      padding: 16px;
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: none;
+
+      &:hover {
+        background: lightgrey;
+      }
+    }
+  }
+
+  &__details {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
