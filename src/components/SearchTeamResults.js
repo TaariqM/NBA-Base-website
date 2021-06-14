@@ -12,7 +12,7 @@ const SearchResults = ({ teamResults }) => {
         return (
           <div className="result-card">
             <div className="result-card__left-col">
-              <img src={teamResult.logo} />
+              {/* <img src={teamResult.logo} /> */}
             </div>
             <div className="result-card__right-col">
               <ul>
@@ -26,16 +26,14 @@ const SearchResults = ({ teamResults }) => {
                 <li>
                   <div className="result-card__right-col__detail-container">
                     <p>Country</p>
-                    <p>{teamResult.country.name}</p>
+                    {/* <p>{teamResult.country.name}</p> */}
                   </div>
                 </li>
 
                 <li>
                   <div className="result-card__right-col__detail-container">
                     <p></p>
-                    <p>
-                      <img src={teamResult.country.flag} />
-                    </p>
+                    <p>{/* <img src={teamResult.country.flag} /> */}</p>
                   </div>
                 </li>
               </ul>

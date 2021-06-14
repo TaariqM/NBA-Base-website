@@ -18,6 +18,13 @@ const SearchPage = () => {
 
   useEffect(() => {
     document.addEventListener("mouseup", handleClickAway);
+    fetch(`https://www.balldontlie.io/api/v1/teams`)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        setResults(data.data);
+      });
+
     return () => {
       document.removeEventListener("mouseup", handleClickAway);
       //removes the event listener when the component unmounts(meaning when youre not on the search page)
@@ -32,23 +39,45 @@ const SearchPage = () => {
   };
 
   const handleTeamChange = (e) => {
-    setSearchTeams(e.target.value);
-    fetch(
-      `https://api-basketball.p.rapidapi.com/teams?search=${e.target.value}`,
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key":
-            "694b13d17amshbd230d43fbffbd3p16d5a9jsnb8e3754bcb28",
-          "x-rapidapi-host": "api-basketball.p.rapidapi.com",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => setTeams(data.response.slice(0, 10).reverse()))
-      .catch((err) => {
-        console.error(err);
-      });
+    setSearchTeams(e.target.value); //value of the input variable. Everytime it gets changed, it updates the value
+    const tempTeams = results.filter((result) => {
+      if (result.name.toLowerCase().includes(e.target.value.toLowerCase()))
+        return true;
+      if (result.city.toLowerCase().includes(e.target.value.toLowerCase()))
+        return true;
+      if (
+        result.abbreviation.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+        return true;
+      if (result.full_name.toLowerCase().includes(e.target.value.toLowerCase()))
+        return true;
+      if (
+        result.conference.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+        return true;
+      if (result.division.toLowerCase().includes(e.target.value.toLowerCase()))
+        return true;
+
+      return false;
+    });
+
+    setTeams(tempTeams);
+    // fetch(
+    //   `https://api-basketball.p.rapidapi.com/teams?search=${e.target.value}`,
+    //   {
+    //     method: "GET",
+    //     headers: {
+    //       "x-rapidapi-key":
+    //         "694b13d17amshbd230d43fbffbd3p16d5a9jsnb8e3754bcb28",
+    //       "x-rapidapi-host": "api-basketball.p.rapidapi.com",
+    //     },
+    //   }
+    // )
+    //   .then((response) => response.json())
+    //   .then((data) => setTeams(data.response.slice(0, 10).reverse()))
+    //   .catch((err) => {
+    //     console.error(err);
+    //   });
     //.filter((team) => team.)
   };
 
