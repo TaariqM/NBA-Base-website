@@ -12,8 +12,9 @@ import "./css/App.css";
 function App() {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <BrowserRouter>
+        <Header />
         <Route exact path="/">
           <HomePage />
         </Route>
