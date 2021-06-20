@@ -1,13 +1,11 @@
 import React from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import HomePage from "./HomePage";
-import SearchPage from "./SearchPage";
 import "../css/Navigation.css";
+// this component creates the Navigation Bar
 
 const Navigation = () => {
   return (
     <>
-      {/* <BrowserRouter> */}
       <div className="navbtn-container">
         <div>
           <Link to="/" className="navbtn-container__link">
@@ -27,14 +25,6 @@ const Navigation = () => {
           </Link>
         </div>
       </div>
-      {/* <Route exact path="/">
-          <HomePage />
-        </Route>
-
-        <Route exact path="/search/:page">
-          <SearchPage />
-        </Route> */}
-      {/* </BrowserRouter> */}
     </>
   );
 };

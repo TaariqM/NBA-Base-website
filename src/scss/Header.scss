@@ -4,14 +4,19 @@
   top: 0px;
   background: #c43c3c;
 
-  &__nba-header {
-    padding-top: 45px;
-    font-family: "Kanit";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 64px;
-    line-height: 75px;
-    text-align: center;
-    color: #000000;
+  > div {
+    &:first-child {
+      padding-top: 45px;
+      // the 'NBA Base' title in the heading is a bit close to the navigation bar, so I was trying to move it upwards. The commented code below was not working
+      // position: relative;
+      // padding-bottom: 10px;
+      font-family: "Kanit";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 64px;
+      line-height: 75px;
+      text-align: center;
+      color: #000000;
+    }
   }
 }
