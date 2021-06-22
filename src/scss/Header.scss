@@ -16,6 +16,14 @@
       font-size: 64px;
       line-height: 75px;
       text-align: center;
+      color: #000000 !important;
+    }
+  }
+
+  &__nba-header {
+    color: #000000;
+
+    &:hover {
       color: #000000;
     }
   }
