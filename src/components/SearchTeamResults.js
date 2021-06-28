@@ -8,7 +8,6 @@ const SearchResults = ({ teamResults }) => {
   return (
     <>
       {teamResults.map((teamResult) => {
-        console.log(teamResult);
         return (
           <div className="result-card">
             <div className="result-card__left-col">

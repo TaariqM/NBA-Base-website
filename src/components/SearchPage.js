@@ -4,17 +4,30 @@ import { useParams, useHistory } from "react-router-dom";
 import SearchBar from "./SearchBar";
 import SearchPlayerResults from "./SearchPlayerResults";
 import SearchTeamResults from "./SearchTeamResults";
+import { useSelector, useDispatch } from "react-redux";
+import { setPlayers } from "../features/players/playersSlice";
+import { setTeams } from "../features/teams/teamsSlice";
 
 const SearchPage = () => {
+  const dispatch = useDispatch(); //if you want to change a variable in this state, you use useDispatch
+  const players = useSelector((state) => state.players.players); //when you want to access a variable in this state, you use useSelector
+  const teams = useSelector((state) => state.teams.teams);
   const { page } = useParams();
-  const [teams, setTeams] = useState();
-  const [players, setPlayers] = useState();
+  //const [teams, setTeams] = useState();
+  //const [players, setPlayers] = useState();
   const [searchTeams, setSearchTeams] = useState("");
   const [searchPlayers, setSearchPlayers] = useState("");
   const history = useHistory();
   const ref = useRef();
   const formRef = useRef();
   const [results, setResults] = useState([]);
+
+  const handleClickAway = (e) => {
+    if (ref.current && !ref.current.contains(e.target)) {
+      dispatch(setPlayers(null));
+      dispatch(setTeams(null));
+    }
+  };
 
   useEffect(() => {
     document.addEventListener("mouseup", handleClickAway);
@@ -30,13 +43,6 @@ const SearchPage = () => {
       //removes the event listener when the component unmounts(meaning when youre not on the search page)
     };
   }, []); //this array means that whenever an item in this array is updated, this component will refresh
-
-  const handleClickAway = (e) => {
-    if (!ref.current.contains(e.target)) {
-      setPlayers(null);
-      setTeams(null);
-    }
-  };
 
   const handleTeamChange = (e) => {
     setSearchTeams(e.target.value); //value of the input variable. Everytime it gets changed, it updates the value
@@ -61,24 +67,8 @@ const SearchPage = () => {
       return false;
     });
 
-    setTeams(tempTeams);
-    // fetch(
-    //   `https://api-basketball.p.rapidapi.com/teams?search=${e.target.value}`,
-    //   {
-    //     method: "GET",
-    //     headers: {
-    //       "x-rapidapi-key":
-    //         "694b13d17amshbd230d43fbffbd3p16d5a9jsnb8e3754bcb28",
-    //       "x-rapidapi-host": "api-basketball.p.rapidapi.com",
-    //     },
-    //   }
-    // )
-    //   .then((response) => response.json())
-    //   .then((data) => setTeams(data.response.slice(0, 10).reverse()))
-    //   .catch((err) => {
-    //     console.error(err);
-    //   });
-    //.filter((team) => team.)
+    //setTeams(tempTeams);
+    dispatch(setTeams(tempTeams));
   };
 
   const handlePlayerChange = (e) => {
@@ -90,7 +80,7 @@ const SearchPage = () => {
       }
     )
       .then((response) => response.json())
-      .then((data) => setPlayers(data.data))
+      .then((data) => dispatch(setPlayers(data.data)))
       // .then((data) => console.log(data.data))
       .catch((err) => {
         console.error(err);
@@ -105,16 +95,13 @@ const SearchPage = () => {
     setSearchPlayers(e.target.value);
     // formRef.current.submit();
     history.push(`/search/players/${e.target.value}`);
-    setPlayers(null);
+    dispatch(setPlayers(null));
   };
 
   const handlePlayerSubmit = (e) => {
     e.preventDefault();
-    //console.log(e);
-    //console.log(e.target[0].value);
-    //history.push(`/search/players/${e.target[0].value}`);
     setResults(players);
-    setPlayers(null);
+    dispatch(setPlayers(null));
   };
 
   const handleTeamSubmit = (e) => {
@@ -122,18 +109,12 @@ const SearchPage = () => {
     // console.log(e.target[0].value);
     // history.push(`/search/teams/${e.target[0].value}`);
     setResults(teams);
-    setTeams(null);
+    //setTeams(null);
+    dispatch(setTeams(null));
   };
 
-  //const updatedArray = () => {
-  // const updatedPlayers = results.shift();
-  // const newArr = updatedPlayers.slice(1, updatedPlayers.length + 1);
-  //const first = Object.keys(results)[0];
-  //delete results[first];
-  //};
-
   return page === "teams" ? (
-    <div className="searchpage" ref={ref}>
+    <div className="searchpage">
       <div className="searchpage__input-group">
         <SearchBar
           ref={formRef}
@@ -148,6 +129,7 @@ const SearchPage = () => {
           height: !teams || teams.length !== 0 ? "fit-content" : 0,
         }}
         className="searchpage__results"
+        ref={ref}
       >
         {teams
           ? teams.map((team, index) => (
@@ -158,11 +140,11 @@ const SearchPage = () => {
           : null}
       </div>
       <div className="searchpage__details">
-        <SearchTeamResults teamResults={results} />
+        {results ? <SearchTeamResults teamResults={results} /> : null}
       </div>
     </div>
   ) : (
-    <div className="searchpage" ref={ref}>
+    <div className="searchpage">
       <div className="searchpage__input-group">
         <SearchBar
           ref={formRef}
@@ -177,6 +159,7 @@ const SearchPage = () => {
           height: !players || players.length !== 0 ? "fit-content" : 0,
         }}
         className="searchpage__results"
+        ref={ref}
       >
         {players
           ? players.map((player, index) => (
@@ -191,7 +174,7 @@ const SearchPage = () => {
           : null}
       </div>
       <div className="searchpage__details">
-        <SearchPlayerResults playerResults={results} />{" "}
+        {results ? <SearchPlayerResults playerResults={results} /> : null}{" "}
         {/**Changed from results to updatedPlayers. Now I changed 'results' to 'newArr' */}
       </div>
     </div>
