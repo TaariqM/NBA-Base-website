@@ -6,56 +6,64 @@ import Picture from "./Picture";
 import "../css/SearchResults.css";
 
 const SearchResults = ({ playerResults }) => {
-  console.log(playerResults);
+  // console.log(playerResults);
   return (
     <>
       {playerResults.map((playerResult) => {
         return (
-          <div className="result-card">
-            <div className="result-card__left-col">
-              <Picture
-                firstName={playerResult.first_name}
-                lastName={playerResult.last_name}
-              />
+          <div className="player">
+            <div className="player__name">
+              <p>{playerResult.first_name + " " + playerResult.last_name}</p>
             </div>
-            <div className="result-card__right-col">
-              <ul>
-                <li>
-                  <div className="result-card__right-col__detail-container">
-                    <p>FirstName</p>
-                    <p>{playerResult.first_name}</p>
-                  </div>
-                </li>
 
-                <li>
-                  <div className="result-card__right-col__detail-container">
-                    <p>LastName</p>
-                    <p>{playerResult.last_name}</p>
-                  </div>
-                </li>
+            <div className="player__result-card">
+              {/* <div className="result-card__top-row">
+              <p>{playerResult.first_name + " " + playerResult.last_name}</p>
+            </div> */}
+              <div className="player__result-card__left-col">
+                <Picture
+                  firstName={playerResult.first_name}
+                  lastName={playerResult.last_name}
+                />
+              </div>
+              <div className="player__result-card__right-col">
+                <ul>
+                  <li>
+                    <div className="player__result-card__right-col__detail-container">
+                      <p>FirstName</p>
+                      <p>{playerResult.first_name}</p>
+                    </div>
+                  </li>
 
-                <li>
-                  <div className="result-card__right-col__detail-container">
-                    <p>Height</p>
-                    <p>
-                      {playerResult.height_inches === null
-                        ? "Not Available"
-                        : playerResult.height_inches}
-                    </p>
-                  </div>
-                </li>
+                  <li>
+                    <div className="player__result-card__right-col__detail-container">
+                      <p>LastName</p>
+                      <p>{playerResult.last_name}</p>
+                    </div>
+                  </li>
 
-                <li>
-                  <div className="result-card__right-col__detail-container">
-                    <p>Position</p>
-                    <p>
-                      {playerResult.position === ""
-                        ? "Not Available"
-                        : playerResult.position}
-                    </p>
-                  </div>
-                </li>
-                {/* Object.keys(playerResult).map((detail) => {
+                  <li>
+                    <div className="player__result-card__right-col__detail-container">
+                      <p>Height</p>
+                      <p>
+                        {playerResult.height_inches === null
+                          ? "Not Available"
+                          : playerResult.height_inches}
+                      </p>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div className="player__result-card__right-col__detail-container">
+                      <p>Position</p>
+                      <p>
+                        {playerResult.position === ""
+                          ? "Not Available"
+                          : playerResult.position}
+                      </p>
+                    </div>
+                  </li>
+                  {/* Object.keys(playerResult).map((detail) => {
                   return (
                     <li>
                       
@@ -63,7 +71,8 @@ const SearchResults = ({ playerResults }) => {
                     </li>
                   );
                 }) */}
-              </ul>
+                </ul>
+              </div>
             </div>
           </div>
         );

@@ -5,6 +5,7 @@ import React, { useState, useEffect } from "react";
 import "../css/SearchResults.css";
 
 const SearchResults = ({ teamResults }) => {
+  console.log(teamResults);
   return (
     <>
       {teamResults.map((teamResult) => {

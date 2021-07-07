@@ -13,8 +13,6 @@ const SearchPage = () => {
   const players = useSelector((state) => state.players.players); //when you want to access a variable in this state, you use useSelector
   const teams = useSelector((state) => state.teams.teams);
   const { page } = useParams();
-  //const [teams, setTeams] = useState();
-  //const [players, setPlayers] = useState();
   const [searchTeams, setSearchTeams] = useState("");
   const [searchPlayers, setSearchPlayers] = useState("");
   const history = useHistory();
@@ -31,18 +29,22 @@ const SearchPage = () => {
 
   useEffect(() => {
     document.addEventListener("mouseup", handleClickAway);
-    fetch(`https://www.balldontlie.io/api/v1/teams`)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setResults(data.data);
-      });
+    if (page === "teams") {
+      fetch(`https://www.balldontlie.io/api/v1/teams`)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          setResults(data.data);
+        });
+    } else if (page === "players") {
+      setResults([]);
+    }
 
     return () => {
       document.removeEventListener("mouseup", handleClickAway);
       //removes the event listener when the component unmounts(meaning when youre not on the search page)
     };
-  }, []); //this array means that whenever an item in this array is updated, this component will refresh
+  }, [page]); //this array means that whenever an item in this array is updated, this component will refresh
 
   const handleTeamChange = (e) => {
     setSearchTeams(e.target.value); //value of the input variable. Everytime it gets changed, it updates the value
@@ -67,7 +69,6 @@ const SearchPage = () => {
       return false;
     });
 
-    //setTeams(tempTeams);
     dispatch(setTeams(tempTeams));
   };
 
@@ -81,7 +82,6 @@ const SearchPage = () => {
     )
       .then((response) => response.json())
       .then((data) => dispatch(setPlayers(data.data)))
-      // .then((data) => console.log(data.data))
       .catch((err) => {
         console.error(err);
       });
@@ -93,7 +93,6 @@ const SearchPage = () => {
 
   const handlePlayerClick = (e) => {
     setSearchPlayers(e.target.value);
-    // formRef.current.submit();
     history.push(`/search/players/${e.target.value}`);
     dispatch(setPlayers(null));
   };
@@ -106,10 +105,7 @@ const SearchPage = () => {
 
   const handleTeamSubmit = (e) => {
     e.preventDefault();
-    // console.log(e.target[0].value);
-    // history.push(`/search/teams/${e.target[0].value}`);
     setResults(teams);
-    //setTeams(null);
     dispatch(setTeams(null));
   };
 
@@ -175,7 +171,6 @@ const SearchPage = () => {
       </div>
       <div className="searchpage__details">
         {results ? <SearchPlayerResults playerResults={results} /> : null}{" "}
-        {/**Changed from results to updatedPlayers. Now I changed 'results' to 'newArr' */}
       </div>
     </div>
   );
