@@ -9,7 +9,7 @@
 ### TODO:
 1. Navigation buttons under header plus logo button - (Completed)
 2. Click away listener bug fix - (Completed)
-3. Player result bug fix
+3. Player result bug fix - (Completed)
 4. Player/Team styling
 5. Player/Teams more information page on click
 ### API's in use:
