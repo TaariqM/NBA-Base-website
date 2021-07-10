@@ -47,6 +47,7 @@
 }
 
 .player__result-card__bottom-row {
+  height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -143,4 +144,4 @@
 .player__result-card__bottom-row__right-col__detail-container img {
   width: 20px;
 }
-/*# sourceMappingURL=SearchResults.css.map */
+/*# sourceMappingURL=SearchPlayers.css.map */

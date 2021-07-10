@@ -2,46 +2,53 @@
 // import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import "../css/SearchResults.css";
+import "../css/SearchTeams.css";
+import Picture from "../components/TeamPicture";
 
 const SearchResults = ({ teamResults }) => {
   console.log(teamResults);
   return (
-    <>
+    <div className="team">
       {teamResults.map((teamResult) => {
         return (
-          <div className="result-card">
-            <div className="result-card__left-col">
-              {/* <img src={teamResult.logo} /> */}
+          <div className="team__result-card">
+            <div className="team__result-card__top-row">
+              <p>{teamResult.full_name}</p>
             </div>
-            <div className="result-card__right-col">
-              <ul>
-                <li>
-                  <div className="result-card__right-col__detail-container">
-                    <p>Name</p>
-                    <p>{teamResult.name}</p>
-                  </div>
-                </li>
 
-                <li>
-                  <div className="result-card__right-col__detail-container">
-                    <p>Country</p>
-                    {/* <p>{teamResult.country.name}</p> */}
-                  </div>
-                </li>
+            <div className="team__result-card__bottom-row">
+              <div className="team__result-card__bottom-row__left-col">
+                <Picture abbreviation={teamResult.abbreviation} />
+              </div>
+              <div className="team__result-card__bottom-row__right-col">
+                <ul>
+                  <li>
+                    <div className="team__result-card__bottom-row__right-col__detail-container">
+                      <p>Name</p>
+                      <p>{teamResult.full_name}</p>
+                    </div>
+                  </li>
 
-                <li>
-                  <div className="result-card__right-col__detail-container">
-                    <p></p>
-                    <p>{/* <img src={teamResult.country.flag} /> */}</p>
-                  </div>
-                </li>
-              </ul>
+                  <li>
+                    <div className="team__result-card__bottom-row__right-col__detail-container">
+                      <p>Division</p>
+                      <p>{teamResult.division}</p>
+                    </div>
+                  </li>
+
+                  <li>
+                    <div className="team__result-card__bottom-row__right-col__detail-container">
+                      <p>Conference</p>
+                      <p>{teamResult.conference}</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         );
       })}
-    </>
+    </div>
   );
 };
 

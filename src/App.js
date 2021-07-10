@@ -8,6 +8,8 @@ import HomePage from "./components/HomePage";
 import { BrowserRouter, Route } from "react-router-dom";
 import SearchPage from "./components/SearchPage";
 import "./css/App.css";
+import SearchTeamPage from "./components/SearchTeamPage";
+import SearchPlayerPage from "./components/SearchPlayerPage";
 
 function App() {
   return (
@@ -18,10 +20,15 @@ function App() {
         <Route exact path="/">
           <HomePage />
         </Route>
-        <Route exact path="/search/:page">
+        <Route exact path="/search/teams">
           {" "}
           {/*The '?' means that this variable is optional*/}
-          <SearchPage />
+          <SearchTeamPage />
+        </Route>
+        <Route exact path="/search/players">
+          {" "}
+          {/*The '?' means that this variable is optional*/}
+          <SearchPlayerPage />
         </Route>
       </BrowserRouter>
 

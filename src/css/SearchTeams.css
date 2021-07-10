@@ -1,4 +1,4 @@
-.player {
+.team {
   width: 100%;
   height: 100%;
   display: -webkit-box;
@@ -8,12 +8,15 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.player__result-card {
+.team__result-card {
   width: 50%;
   height: 512px;
   margin-top: 30px;
@@ -36,17 +39,18 @@
           align-items: center;
 }
 
-.player__result-card__bottom-row, .player__result-card__top-row {
+.team__result-card__top-row, .team__result-card__bottom-row {
   width: 100%;
 }
 
-.player__result-card__top-row p {
+.team__result-card__top-row p {
   margin-left: 84px;
   color: gray;
   font-size: 36px;
 }
 
-.player__result-card__bottom-row {
+.team__result-card__bottom-row {
+  height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -62,7 +66,7 @@
           align-items: center;
 }
 
-.player__result-card__bottom-row__left-col, .player__result-card__bottom-row__right-col {
+.team__result-card__bottom-row__left-col, .team__result-card__bottom-row__right-col {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -79,7 +83,7 @@
   width: 50%;
 }
 
-.player__result-card__bottom-row__right-col {
+.team__result-card__bottom-row__right-col {
   -webkit-box-align: start !important;
       -ms-flex-align: start !important;
           align-items: flex-start !important;
@@ -89,7 +93,7 @@
   padding-bottom: 50px;
 }
 
-.player__result-card__bottom-row__right-col > ul {
+.team__result-card__bottom-row__right-col > ul {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -106,7 +110,7 @@
           justify-content: center;
 }
 
-.player__result-card__bottom-row__right-col__detail-container {
+.team__result-card__bottom-row__right-col__detail-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -124,23 +128,23 @@
   padding-top: 40px;
 }
 
-.player__result-card__bottom-row__right-col__detail-container p {
+.team__result-card__bottom-row__right-col__detail-container p {
   margin: 4px;
 }
 
-.player__result-card__bottom-row__right-col__detail-container p:first-child {
+.team__result-card__bottom-row__right-col__detail-container p:first-child {
   color: grey;
   font-size: 20px;
   font-weight: 600;
 }
 
-.player__result-card__bottom-row__right-col__detail-container p:last-child {
+.team__result-card__bottom-row__right-col__detail-container p:last-child {
   color: white;
   font-size: 20px;
   font-weight: 400;
 }
 
-.player__result-card__bottom-row__right-col__detail-container img {
+.team__result-card__bottom-row__right-col__detail-container img {
   width: 20px;
 }
-/*# sourceMappingURL=SearchResults.css.map */
+/*# sourceMappingURL=SearchTeams.css.map */
