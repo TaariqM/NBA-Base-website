@@ -10,7 +10,7 @@ const HomePage = () => {
       {/* <button className='team-btn'>TEAMS</button> */}
       {/* <Header />
             <Button /> */}
-      <div className="button-container">
+      {/* <div className="button-container">
         <div>
           <Link to="/search/teams" className="button-container__link">
             TEAMS
@@ -22,7 +22,7 @@ const HomePage = () => {
             PLAYERS
           </Link>
         </div>
-      </div>
+      </div> */}
 
       <div className="logo-container">
         <img src={NBALogo} alt="nba logo" />

@@ -1,5 +1,5 @@
 // eslint-disable-next-line
-import React, { useRef, useEffect, forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 const SearchBar = forwardRef(({ search, handleChange, placeholder }, ref) => {
   //whenever you want to pass the prop 'ref' into some component, you will not be able to call it ref without making the component a forwardRef component

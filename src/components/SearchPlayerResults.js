@@ -1,24 +1,28 @@
-// eslint-disable-next-line
-// import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Picture from "./PlayerPicture";
 import "../css/SearchPlayers.css";
 
 const SearchResults = ({ playerResults }) => {
-  // console.log(playerResults);
+  console.log(playerResults);
+  const history = useHistory();
+
   return (
     <>
       {playerResults.map((playerResult) => {
         return (
           <div className="player">
-            {/* <div className="player__name">
-              <p>{playerResult.first_name + " " + playerResult.last_name}</p>
-            </div> */}
-
             <div className="player__result-card">
               <div className="player__result-card__top-row">
-                <p>{playerResult.first_name + " " + playerResult.last_name}</p>
+                <p
+                  onClick={() => {
+                    history.push(
+                      `/player/${playerResult.first_name}%20${playerResult.last_name}`
+                    );
+                  }}
+                >
+                  {playerResult.first_name + " " + playerResult.last_name}
+                </p>
               </div>
 
               <div className="player__result-card__bottom-row">
@@ -65,14 +69,6 @@ const SearchResults = ({ playerResults }) => {
                         </p>
                       </div>
                     </li>
-                    {/* Object.keys(playerResult).map((detail) => {
-                  return (
-                    <li>
-                      
-                      {detail}: {JSON.stringify(playerResult[detail])}
-                    </li>
-                  );
-                }) */}
                   </ul>
                 </div>
               </div>
