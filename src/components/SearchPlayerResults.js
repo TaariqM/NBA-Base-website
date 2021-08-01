@@ -4,7 +4,7 @@ import Picture from "./PlayerPicture";
 import "../css/SearchPlayers.css";
 
 const SearchResults = ({ playerResults }) => {
-  console.log(playerResults);
+  //console.log(playerResults);
   const history = useHistory();
 
   return (
