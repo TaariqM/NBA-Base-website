@@ -231,7 +231,193 @@ const PlayerInfoPage = () => {
           </div>
         </div>
 
-        <div className="player-info_stats__bottom-row"></div>
+        <div className="player-info__stats__bottom-row">
+          <div className="player-info__stats__bottom-row__first-row">
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>FGM: {playerStats.fgm ? playerStats.fgm : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>FGA: {playerStats.fga ? playerStats.fga : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>3PM: {playerStats.fg3m ? playerStats.fg3m : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>3PA: {playerStats.fg3a ? playerStats.fg3a : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>FTM: {playerStats.ftm ? playerStats.ftm : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>FTA: {playerStats.fta ? playerStats.fta : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>OREB: {playerStats.oreb ? playerStats.oreb : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>DREB: {playerStats.dreb ? playerStats.dreb : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>TO: {playerStats.turnover ? playerStats.turnover : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>PF: {playerStats.pf ? playerStats.pf : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>FG%: {playerStats.fg_pct ? playerStats.fg_pct : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>FG3%: {playerStats.fg3_pct ? playerStats.fg3_pct : "N/A"}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__first-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>FT%: {playerStats.ft_pct ? playerStats.ft_pct : "N/A"}</p>
+            </div>
+          </div>
+
+          {/* <div className="player-info__stats__bottom-row__second-row">
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.fgm}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.fga}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.fg3m}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.fg3a}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.ftm}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.fta}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.oreb}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.dreb}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.turnover}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.pf}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.fg_pct}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.fg3_pct}</p>
+            </div>
+
+            <div
+              className="player-info__stats__bottom-row__second-row__cols"
+              style={{ color: "white" }}
+            >
+              <p>{playerStats.ft_pct}</p>
+            </div>
+          </div> */}
+        </div>
       </div>
     </div>
   );

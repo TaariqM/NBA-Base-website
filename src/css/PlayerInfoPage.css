@@ -167,4 +167,65 @@
   margin: 10px;
   font-size: 20px;
 }
+
+.player-info__stats__bottom-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+.player-info__stats__bottom-row__first-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.player-info__stats__bottom-row__first-row__cols {
+  border: 1px solid white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.player-info__stats__bottom-row__first-row__cols p {
+  font-size: 20px;
+}
+
+.player-info__stats__bottom-row__second-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+}
+
+.player-info__stats__bottom-row__second-row__cols {
+  border: 1px solid white;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.player-info__stats__bottom-row__second-row__cols p {
+  font-size: 17.58px;
+}
 /*# sourceMappingURL=PlayerInfoPage.css.map */

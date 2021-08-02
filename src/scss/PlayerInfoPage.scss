@@ -90,5 +90,44 @@
         }
       }
     }
+
+    &__bottom-row {
+      display: flex;
+      flex-direction: column;
+      //justify-content: center;
+      align-items: center;
+      position: relative;
+      &__first-row {
+        display: flex;
+        flex-direction: row;
+        &__cols {
+          border: 1px solid white;
+          box-sizing: border-box;
+          padding: 10px;
+          padding-left: 30px;
+          padding-right: 30px;
+          p {
+            font-size: 20px;
+          }
+        }
+      }
+      &__second-row {
+        display: flex;
+        flex-direction: row;
+        // justify-content: center;
+        // float: inline-start;
+        position: relative;
+        &__cols {
+          border: 1px solid white;
+          box-sizing: border-box;
+          padding: 10px;
+          padding-left: 30px;
+          padding-right: 30px;
+          p {
+            font-size: 17.58px;
+          }
+        }
+      }
+    }
   }
 }
