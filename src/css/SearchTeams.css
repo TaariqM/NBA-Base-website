@@ -8,9 +8,6 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -34,13 +31,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  position: relative;
 }
 
 .team__result-card__top-row, .team__result-card__bottom-row {
   width: 100%;
+  position: relative;
 }
 
 .team__result-card__top-row p {
@@ -80,7 +76,8 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 50%;
+  width: 100%;
+  position: relative;
 }
 
 .team__result-card__bottom-row__right-col {
@@ -102,12 +99,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-right: 20px;
+  width: auto;
 }
 
 .team__result-card__bottom-row__right-col__detail-container {

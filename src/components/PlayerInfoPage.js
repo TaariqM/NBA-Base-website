@@ -39,7 +39,7 @@ const PlayerInfoPage = () => {
   useEffect(() => {
     //this function is used to get the Season Averages of a specific player // JSON.parse(JSON.stringify(response))
     fetch(
-      `https://www.balldontlie.io/api/v1/season_averages?season=2020&player_ids[]=${playerID}`,
+      `https://www.balldontlie.io/api/v1/season_averages?season=2019&player_ids[]=${playerID}`,
       { method: "GET" }
     )
       .then((response) => response.json())

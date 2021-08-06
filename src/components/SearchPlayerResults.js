@@ -52,7 +52,7 @@ const SearchResults = ({ playerResults }) => {
                       <div className="player__result-card__bottom-row__right-col__detail-container">
                         <p>Height</p>
                         <p>
-                          {playerResult.height_feet &&
+                          {playerResult.height_feet === null &&
                           playerResult.height_inches === null
                             ? "Not Available"
                             : playerResult.height_feet +

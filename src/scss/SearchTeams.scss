@@ -3,7 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  //justify-content: center;
   align-items: center;
 
   &__result-card {
@@ -16,11 +16,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    //align-items: center;
+    position: relative; /////////
 
     &__top-row,
     &__bottom-row {
       width: 100%;
+      position: relative; /////////
     }
 
     &__top-row {
@@ -40,10 +42,11 @@
       &__left-col,
       &__right-col {
         display: flex;
-        flex-direction: column;
+        flex-direction: column; //changed from column to row
         align-items: center;
         justify-content: center;
-        width: 50%;
+        width: 100%;
+        position: relative; ///////
         //height: 100%;
       }
 
@@ -55,8 +58,11 @@
           list-style: none;
           display: flex;
           flex-direction: column;
-          align-items: start;
+          //align-items: start;
           justify-content: center;
+          padding-right: 20px; ////////////
+          width: auto;
+          //white-space: nowrap;
         }
         &__detail-container {
           display: flex;

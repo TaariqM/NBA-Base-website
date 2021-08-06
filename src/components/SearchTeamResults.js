@@ -43,6 +43,13 @@ const SearchResults = ({ teamResults }) => {
                       <p>{teamResult.conference}</p>
                     </div>
                   </li>
+
+                  <li>
+                    <div className="team__result-card__bottom-row__right-col__detail-container">
+                      <p>City</p>
+                      <p>{teamResult.city}</p>
+                    </div>
+                  </li>
                 </ul>
               </div>
             </div>
