@@ -1,12 +1,13 @@
 // eslint-disable-next-line
 // import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import "../css/SearchTeams.css";
 import Picture from "../components/TeamPicture";
 
 const SearchResults = ({ teamResults }) => {
-  console.log(teamResults);
+  //console.log(teamResults);
+  //const hist = useHistory();
   return (
     <div className="team">
       {teamResults.map((teamResult) => {
