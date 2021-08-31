@@ -15,3 +15,5 @@
 ### API's in use:
 1. Balldontlie API: https://www.balldontlie.io/api/v1/
 2. NBA Headshots API: https://nba-players.herokuapp.com/
+3. LiveScore API: https://rapidapi.com/apidojo/api/livescore6/
+4. API-NBA API: https://rapidapi.com/api-sports/api/api-nba/
