@@ -34,6 +34,10 @@
   position: relative;
 }
 
+.player__result-card:hover {
+  background-color: #464646;
+}
+
 .player__result-card__bottom-row, .player__result-card__top-row {
   width: 100%;
   position: relative;

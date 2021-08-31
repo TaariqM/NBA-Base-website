@@ -29,7 +29,6 @@
 }
 
 .navbtn-container > div:hover {
-  background-color: #ddd;
   -webkit-text-decoration-color: black;
           text-decoration-color: black;
 }

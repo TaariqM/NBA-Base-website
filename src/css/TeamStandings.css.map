@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,oBAAoB,CAAC;EACnB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,WAAW;EACnB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;CAUvB;;AAdD,AAME,oBANkB,GAMhB,EAAE,CAAC;EACH,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,IAAI;EAChB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,WAAW,EAAE,OAAO;EACpB,OAAO,EAAE,GAAG;CACb",
+    "sources": [
+        "../scss/TeamStandings.scss"
+    ],
+    "names": [],
+    "file": "TeamStandings.css"
+}

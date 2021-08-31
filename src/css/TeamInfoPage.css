@@ -1,7 +1,7 @@
 .team-info {
   width: 100%;
   height: 783px;
-  background-color: black;
+  background-color: #282828;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,13 +9,20 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  position: relative;
 }
 
-.team-info__stats {
+.team-info__result-card {
+  margin: 20px;
+  -webkit-box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+  background-color: #353535;
+  position: relative;
+  border-radius: 12px;
+}
+
+.team-info__result-card__top-row {
   width: 100%;
-}
-
-.team-info__stats__left-col {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -23,11 +30,138 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.team-info__result-card__top-row__left-col {
+  width: 316px;
+  height: 316px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: 1px solid white;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  margin: 20px;
+}
+
+.team-info__result-card__top-row__left-col img {
+  width: 100%;
+  height: 100%;
+}
+
+.team-info__result-card__top-row__mid-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 30px;
+}
+
+.team-info__result-card__top-row__mid-col p {
+  color: white;
+  font-size: 25px;
+}
+
+.team-info__result-card__top-row__right-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 30px;
+}
+
+.team-info__result-card__top-row__right-col p {
+  color: white;
+  font-size: 25px;
+  margin-top: 27px;
+}
+
+.team-info__result-card__top-row__right-most-col {
+  width: 316px;
+  height: 316px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px;
+}
+
+.team-info__result-card__top-row__right-most-col img {
+  width: 100%;
+  height: 100%;
+}
+
+.team-info__result-card__mid-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  background-color: #464646;
+}
+
+.team-info__result-card__mid-row p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.team-info__result-card__bottom-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.team-info__result-card__bottom-row p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 10px;
+  color: white;
+  font-size: 20px;
+  padding-right: 24px;
 }
 /*# sourceMappingURL=TeamInfoPage.css.map */

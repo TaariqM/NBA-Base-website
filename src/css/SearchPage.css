@@ -1,6 +1,6 @@
 .searchpage {
   width: 100%;
-  height: 100%;
+  height: 2200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,13 +15,11 @@
       -ms-flex-pack: start;
           justify-content: flex-start;
   position: relative;
+  background-color: #282828;
 }
 
 .searchpage__input-group {
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -44,7 +42,6 @@
   height: 64px;
   margin-top: 30px;
   border-radius: 8px;
-  /* border: 1px solid lightgrey; */
   border: none;
   -webkit-box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
           box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
@@ -74,34 +71,66 @@
           justify-content: flex-start;
 }
 
-.searchpage__results {
-  position: absolute;
+.searchpage__standings {
   width: 50%;
-  top: 94px;
-  /* padding: 8px; */
-  background: white;
-  -webkit-box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
-          box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  z-index: 2;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.searchpage__results > button {
-  padding: 16px;
-  width: 100%;
-  text-align: left;
-  border: none;
-  background: none;
+.searchpage__standings__east-standings {
+  margin-right: 10px;
 }
 
-.searchpage__results > button:hover {
-  background: lightgrey;
+.searchpage__standings__east-standings__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 25px;
+  color: white;
+}
+
+.searchpage__standings__west-standings {
+  margin-left: 10px;
+}
+
+.searchpage__standings__west-standings__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 25px;
+  color: white;
 }
 
 .searchpage__details {
   width: 100%;
-  height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,5 +144,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: #282828;
 }
 /*# sourceMappingURL=SearchPage.css.map */

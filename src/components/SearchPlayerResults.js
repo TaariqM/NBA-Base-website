@@ -4,7 +4,6 @@ import Picture from "./PlayerPicture";
 import "../css/SearchPlayers.css";
 
 const SearchResults = ({ playerResults }) => {
-  //console.log(playerResults);
   const history = useHistory();
 
   return (
@@ -12,17 +11,16 @@ const SearchResults = ({ playerResults }) => {
       {playerResults.map((playerResult) => {
         return (
           <div className="player">
-            <div className="player__result-card">
+            <div
+              onClick={() => {
+                history.push(
+                  `/player/${playerResult.first_name}%20${playerResult.last_name}`
+                );
+              }}
+              className="player__result-card"
+            >
               <div className="player__result-card__top-row">
-                <p
-                  onClick={() => {
-                    history.push(
-                      `/player/${playerResult.first_name}%20${playerResult.last_name}`
-                    );
-                  }}
-                >
-                  {playerResult.first_name + " " + playerResult.last_name}
-                </p>
+                <p>{playerResult.first_name + " " + playerResult.last_name}</p>
               </div>
 
               <div className="player__result-card__bottom-row">

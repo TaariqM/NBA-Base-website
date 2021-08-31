@@ -10,11 +10,7 @@ export const teamsSlice = createSlice({
   initialState: {
     teams: null,
   },
-  // reducers: {
-  //   setTeams: (state, action) => {
-  //     state.teams = action.payload;
-  //   },
-  // },
+
   extraReducers: (builder) => {
     builder.addCase(setTeams.fulfilled, (state, action) => {
       state.teams = action.payload;

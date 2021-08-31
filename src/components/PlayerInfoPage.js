@@ -6,12 +6,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { setPlayers } from "../features/players/playersSlice";
 
 const PlayerInfoPage = () => {
-  //const dispatch = useDispatch();
-  //const players_info = useSelector((state) => state.players.players);
   const { player_name } = useParams();
   const [playerInfo, setPlayerInfo] = useState([]);
   const [playerID, setPlayerID] = useState();
-  // let playerPos;
   const [playerStats, setPlayerStats] = useState([]);
 
   useEffect(() => {
@@ -39,7 +36,7 @@ const PlayerInfoPage = () => {
   useEffect(() => {
     //this function is used to get the Season Averages of a specific player // JSON.parse(JSON.stringify(response))
     fetch(
-      `https://www.balldontlie.io/api/v1/season_averages?season=2019&player_ids[]=${playerID}`,
+      `https://www.balldontlie.io/api/v1/season_averages?season=2020&player_ids[]=${playerID}`,
       { method: "GET" }
     )
       .then((response) => response.json())
@@ -74,349 +71,98 @@ const PlayerInfoPage = () => {
 
   return (
     <div className="player-info">
-      <div className="player-info__stats">
-        <div className="player-info__stats__top-row">
-          <div className="player-info__stats__top-row__left-col">
+      <div className="player-info__result-card">
+        <div className="player-info__result-card__top-row">
+          <div className="player-info__result-card__top-row__left-col">
             <PlayerPicture
               firstName={playerInfo.first_name}
               lastName={playerInfo.last_name}
             />
           </div>
-
-          <div className="player-info__stats__top-row__middle-col">
-            <div className="player-info__stats__top-row__middle-col__left-side">
-              <ul>
-                <li>
-                  <div
-                    className="player-info__stats__top-row__middle-col__left-side__detail"
-                    style={{ color: "white" }}
-                  >
-                    <p>FirstName: {playerInfo.first_name}</p>
-                  </div>
-                </li>
-
-                <li>
-                  <div
-                    className="player-info__stats__top-row__middle-col__left-side__detail"
-                    style={{ color: "white" }}
-                  >
-                    <p>LastName: {playerInfo.last_name}</p>
-                  </div>
-                </li>
-
-                <li>
-                  <div
-                    className="player-info__stats__top-row__middle-col__left-side__detail"
-                    style={{ color: "white" }}
-                  >
-                    <p>
-                      Team:{" "}
-                      {playerInfo &&
-                      playerInfo.team &&
-                      playerInfo.team.full_name !== ""
-                        ? playerInfo.team.full_name
-                        : "Not Available"}
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <div
-                    className="player-info__stats__top-row__middle-col__left-side__detail"
-                    style={{ color: "white" }}
-                  >
-                    <p>
-                      Position:{" "}
-                      {playerInfo && playerInfo.position !== ""
-                        ? getPlayerPosition(playerInfo.position)
-                        : "Not Available"}
-                    </p>
-                  </div>
-                </li>
-              </ul>
+          <div className="player-info__result-card__top-row__mid-col">
+            <div className="player-info__result-card__top-row__mid-col__left-side">
+              <p>First Name: {playerInfo.first_name}</p>
+              <p>Last Name: {playerInfo.last_name}</p>
+              <p>
+                Team:{" "}
+                {playerInfo &&
+                playerInfo.team &&
+                playerInfo.team.full_name !== ""
+                  ? playerInfo.team.full_name
+                  : "Not Available"}
+              </p>
+              <p>
+                Position:{" "}
+                {playerInfo && playerInfo.position !== ""
+                  ? getPlayerPosition(playerInfo.position)
+                  : "Not Available"}
+              </p>
             </div>
 
-            <div className="player-info__stats__top-row__middle-col__right-side">
-              <ul>
-                <li>
-                  <div
-                    className="player-info__stats__top-row__middle-col__right-side__detail"
-                    style={{ color: "white" }}
-                  >
-                    <p>
-                      Height:{" "}
-                      {playerInfo.height_feet
-                        ? playerInfo.height_feet +
-                          "'" +
-                          playerInfo.height_inches
-                        : "Not Available"}
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <div
-                    className="player-info__stats__top-row__middle-col__right-side__detail"
-                    style={{ color: "white" }}
-                  >
-                    <p>
-                      Weight:{" "}
-                      {playerInfo.weight_pounds
-                        ? playerInfo.weight_pounds + " lbs"
-                        : "Not Available"}
-                    </p>
-                  </div>
-                </li>
-              </ul>
+            <div className="player-info__result-card__top-row__mid-col__right-side">
+              <p>
+                Height:{" "}
+                {playerInfo.height_feet
+                  ? playerInfo.height_feet + "'" + playerInfo.height_inches
+                  : "Not Available"}
+              </p>
+              <p>
+                Weight:{" "}
+                {playerInfo.weight_pounds
+                  ? playerInfo.weight_pounds + " lbs"
+                  : "Not Available"}
+              </p>
             </div>
           </div>
+          <div className="player-info__result-card__top-row__right-col">
+            <p>PPG: {playerStats.pts ? playerStats.pts : "N/A"}</p>
+            <p>TREB: {playerStats.reb ? playerStats.reb : "N/A"}</p>
+            <p>AST: {playerStats.ast ? playerStats.ast : "N/A"}</p>
+            <p>STL: {playerStats.stl ? playerStats.stl : "N/A"}</p>
+          </div>
 
-          <div className="player-info__stats__top-row__right-col">
-            <ul>
-              <li>
-                <div
-                  className="player-info__stats__top-row__right-col__detail"
-                  style={{ color: "white" }}
-                >
-                  <p>
-                    PPG: {playerStats.pts ? playerStats.pts : "Not Available"}
-                  </p>
-                </div>
-              </li>
+          <div className="player-info__result-card__top-row__second-right-col">
+            <p>BLK: {playerStats.blk ? playerStats.blk : "N/A"}</p>
+          </div>
 
-              <li>
-                <div
-                  className="player-info__stats__top-row__right-col__detail"
-                  style={{ color: "white" }}
-                >
-                  <p>
-                    TREB: {playerStats.reb ? playerStats.reb : "Not Available"}
-                  </p>
-                </div>
-              </li>
-
-              <li>
-                <div
-                  className="player-info__stats__top-row__right-col__detail"
-                  style={{ color: "white" }}
-                >
-                  <p>
-                    AST: {playerStats.ast ? playerStats.ast : "Not Available"}
-                  </p>
-                </div>
-              </li>
-
-              <li>
-                <div
-                  className="player-info__stats__top-row__right-col__detail"
-                  style={{ color: "white" }}
-                >
-                  <p>
-                    STL: {playerStats.stl ? playerStats.stl : "Not Available"}
-                  </p>
-                </div>
-              </li>
-
-              <li>
-                <div
-                  className="player-info__stats__top-row__right-col__detail"
-                  style={{ color: "white" }}
-                >
-                  <p>
-                    BLK: {playerStats.blk ? playerStats.blk : "Not Available"}
-                  </p>
-                </div>
-              </li>
-            </ul>
+          <div className="player-info__result-card__top-row__third-right-col">
+            <PlayerPicture
+              firstName={playerInfo.first_name}
+              lastName={playerInfo.last_name}
+            />
           </div>
         </div>
 
-        <div className="player-info__stats__bottom-row">
-          <div className="player-info__stats__bottom-row__first-row">
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>FGM: {playerStats.fgm ? playerStats.fgm : "N/A"}</p>
-            </div>
+        <div className="player-info__result-card__middle-row">
+          <p>FGM</p>
+          <p>FGA</p>
+          <p>3PM</p>
+          <p>3PA</p>
+          <p>FTM</p>
+          <p>FTA</p>
+          <p>OREB</p>
+          <p>DREB</p>
+          <p>TO</p>
+          <p>PF</p>
+          <p>FG%</p>
+          <p>FG3%</p>
+          <p>FT%</p>
+        </div>
 
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>FGA: {playerStats.fga ? playerStats.fga : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>3PM: {playerStats.fg3m ? playerStats.fg3m : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>3PA: {playerStats.fg3a ? playerStats.fg3a : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>FTM: {playerStats.ftm ? playerStats.ftm : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>FTA: {playerStats.fta ? playerStats.fta : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>OREB: {playerStats.oreb ? playerStats.oreb : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>DREB: {playerStats.dreb ? playerStats.dreb : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>TO: {playerStats.turnover ? playerStats.turnover : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>PF: {playerStats.pf ? playerStats.pf : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>FG%: {playerStats.fg_pct ? playerStats.fg_pct : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>FG3%: {playerStats.fg3_pct ? playerStats.fg3_pct : "N/A"}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__first-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>FT%: {playerStats.ft_pct ? playerStats.ft_pct : "N/A"}</p>
-            </div>
-          </div>
-
-          {/* <div className="player-info__stats__bottom-row__second-row">
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.fgm}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.fga}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.fg3m}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.fg3a}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.ftm}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.fta}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.oreb}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.dreb}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.turnover}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.pf}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.fg_pct}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.fg3_pct}</p>
-            </div>
-
-            <div
-              className="player-info__stats__bottom-row__second-row__cols"
-              style={{ color: "white" }}
-            >
-              <p>{playerStats.ft_pct}</p>
-            </div>
-          </div> */}
+        <div className="player-info__result-card__bottom-row">
+          <p>{playerStats.fgm ? playerStats.fgm : "N/A"}</p>
+          <p>{playerStats.fga ? playerStats.fga : "N/A"}</p>
+          <p>{playerStats.fg3m ? playerStats.fg3m : "N/A"}</p>
+          <p>{playerStats.fg3a ? playerStats.fg3a : "N/A"}</p>
+          <p>{playerStats.ftm ? playerStats.ftm : "N/A"}</p>
+          <p>{playerStats.fta ? playerStats.fta : "N/A"}</p>
+          <p>{playerStats.oreb ? playerStats.oreb : "N/A"}</p>
+          <p>{playerStats.dreb ? playerStats.dreb : "N/A"}</p>
+          <p>{playerStats.turnover ? playerStats.turnover : "N/A"}</p>
+          <p>{playerStats.pf ? playerStats.pf : "N/A"}</p>
+          <p>{playerStats.fg_pct ? playerStats.fg_pct : "N/A"}</p>
+          <p>{playerStats.fg3_pct ? playerStats.fg3_pct : "N/A"}</p>
+          <p>{playerStats.ft_pct ? playerStats.ft_pct : "N/A"}</p>
         </div>
       </div>
     </div>

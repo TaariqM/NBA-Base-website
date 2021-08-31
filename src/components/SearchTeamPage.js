@@ -4,6 +4,8 @@ import SearchBar from "./SearchBar";
 import SearchTeamResults from "./SearchTeamResults";
 import { useSelector, useDispatch } from "react-redux";
 import { setTeams } from "../features/teams/teamsSlice";
+import EastTeamStandings from "./EastTeamStandings";
+import WestTeamStandings from "./WestTeamStandings";
 
 const SearchPage = () => {
   const dispatch = useDispatch(); //if you want to change a variable in this state, you use useDispatch
@@ -12,6 +14,8 @@ const SearchPage = () => {
 
   const [searchTeams, setSearchTeams] = useState("");
   const [results, setResults] = useState([]);
+  const [eastStandings, setEastStandings] = useState([]);
+  const [show, setShow] = useState(true); /////////
 
   useEffect(() => {
     dispatch(setTeams());
@@ -21,6 +25,7 @@ const SearchPage = () => {
     setSearchTeams(e.target.value); //value of the input variable. Everytime it gets changed, it updates the value
 
     if (e.target.value === "") {
+      setShow(true);
       setResults([]);
     } else if (teams && teams.length !== 0)
       setResults(
@@ -55,6 +60,7 @@ const SearchPage = () => {
           return false;
         })
       );
+    setShow(false);
   };
 
   return (
@@ -67,8 +73,28 @@ const SearchPage = () => {
         />
       </div>
 
+      <div className="searchpage__standings">
+        <div className="searchpage__standings__east-standings">
+          {show ? (
+            <div className="searchpage__standings__east-standings__title">
+              <p>Eastern Conference Standings</p>
+            </div>
+          ) : null}
+
+          {show ? <EastTeamStandings /> : null}
+        </div>
+        <div className="searchpage__standings__west-standings">
+          {show ? (
+            <div className="searchpage__standings__west-standings__title">
+              <p>Western Conference Standings</p>
+            </div>
+          ) : null}
+          {show ? <WestTeamStandings /> : null}
+        </div>
+      </div>
+
       <div className="searchpage__details">
-        <SearchTeamResults teamResults={results} />
+        {results ? <SearchTeamResults teamResults={results} /> : null}
       </div>
     </div>
   );

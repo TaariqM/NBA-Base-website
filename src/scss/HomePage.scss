@@ -1,39 +1,59 @@
-.button-container,
-.logo-container {
-  /*ensures both button-container and logo-container have the same styling*/
+.home-feed {
   width: 100%;
-  height: fit-content;
-  /* border: 1px solid red; */
-  display: flex; /*gets the alignment rules ready*/
+  display: flex;
   flex-direction: row;
-  justify-content: center; /*centers everything row wise. Align on x axis*/
-  align-items: center; /*align container on the y axis*/
-}
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: rgb(40, 40, 40);
 
-.button-container {
-  > div {
-    margin-top: 30px;
-    &:first-child {
-      margin-right: 30px;
-    }
-    &:last-child {
-      margin-left: 30px;
-    }
+  &__header-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 40px;
+    font-size: 50px;
+    color: white;
   }
 
-  &__link {
-    background: none;
-    font-size: 32px;
-    font-weight: 700;
-    color: rgba(0, 0, 0, 0.25);
-    &:hover {
-      color: rgba(0, 0, 0, 0.5);
-    }
-  }
-}
+  &__results {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__result-card {
+      padding: 10px;
+      box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+      background-color: rgb(53, 53, 53);
+      margin: 10px;
+      border-radius: 12px;
 
-.logo-container {
-  & > img {
-    width: 72%;
+      &:hover {
+        background-color: rgb(70, 70, 70);
+      }
+
+      &__bottom-row {
+        width: 100%;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        &__title {
+          width: 581px;
+          word-wrap: break-word;
+          color: white;
+          font-size: 25px;
+        }
+        &__author {
+          color: white;
+          font-size: 16px;
+        }
+        &__descr {
+          width: 581px;
+          word-wrap: break-word;
+          color: white;
+          font-size: 14px;
+        }
+      }
+    }
   }
 }

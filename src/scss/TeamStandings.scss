@@ -1,0 +1,15 @@
+.standings-container {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+
+  > ul {
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    padding: 0px;
+  }
+}

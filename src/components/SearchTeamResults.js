@@ -6,13 +6,11 @@ import "../css/SearchTeams.css";
 import Picture from "../components/TeamPicture";
 
 const SearchResults = ({ teamResults }) => {
-  //console.log(teamResults);
-  //const hist = useHistory();
   return (
     <div className="team">
       {teamResults.map((teamResult) => {
         return (
-          <div className="team__result-card">
+          <div key={teamResult.id} className="team__result-card">
             <div className="team__result-card__top-row">
               <p>{teamResult.full_name}</p>
             </div>

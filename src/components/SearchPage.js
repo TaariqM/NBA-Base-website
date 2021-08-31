@@ -23,7 +23,6 @@ const SearchPage = () => {
   const handleClickAway = (e) => {
     if (ref.current && !ref.current.contains(e.target)) {
       dispatch(setPlayers(null));
-      //dispatch(setTeams(null));
     }
   };
 
@@ -106,7 +105,6 @@ const SearchPage = () => {
   const handleTeamSubmit = (e) => {
     e.preventDefault();
     setResults(teams);
-    //dispatch(setTeams(null));
   };
 
   return page === "teams" ? (

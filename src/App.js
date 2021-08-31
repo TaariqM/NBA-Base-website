@@ -7,6 +7,7 @@ import SearchTeamPage from "./components/SearchTeamPage";
 import SearchPlayerPage from "./components/SearchPlayerPage";
 import PlayerInfoPage from "./components/PlayerInfoPage";
 import TeamInfoPage from "./components/TeamInfoPage";
+import NewsPage from "./components/NewsPage";
 
 function App() {
   return (
@@ -30,8 +31,11 @@ function App() {
         <Route exact path="/player/:player_name">
           <PlayerInfoPage />
         </Route>
-        <Route exact path="/team/:team_name">
+        <Route exact path="/team/:team_index">
           <TeamInfoPage />
+        </Route>
+        <Route exact path="/news/:news_index">
+          <NewsPage />
         </Route>
       </BrowserRouter>
     </div>

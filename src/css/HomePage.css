@@ -1,15 +1,24 @@
-.button-container,
-.logo-container {
-  /*ensures both button-container and logo-container have the same styling*/
+.home-feed {
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  /* border: 1px solid red; */
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  /*gets the alignment rules ready*/
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #282828;
+}
+
+.home-feed__header-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -17,37 +26,70 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  /*centers everything row wise. Align on x axis*/
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  /*align container on the y axis*/
+  padding-top: 40px;
+  font-size: 50px;
+  color: white;
 }
 
-.button-container > div {
-  margin-top: 30px;
+.home-feed__results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-.button-container > div:first-child {
-  margin-right: 30px;
+.home-feed__results__result-card {
+  padding: 10px;
+  -webkit-box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 3px 99px rgba(0, 0, 0, 0.25);
+  background-color: #353535;
+  margin: 10px;
+  border-radius: 12px;
 }
 
-.button-container > div:last-child {
-  margin-left: 30px;
+.home-feed__results__result-card:hover {
+  background-color: #464646;
 }
 
-.button-container__link {
-  background: none;
-  font-size: 32px;
-  font-weight: 700;
-  color: rgba(0, 0, 0, 0.25);
+.home-feed__results__result-card__bottom-row {
+  width: 100%;
+  height: 150px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
-.button-container__link:hover {
-  color: rgba(0, 0, 0, 0.5);
+.home-feed__results__result-card__bottom-row__title {
+  width: 581px;
+  word-wrap: break-word;
+  color: white;
+  font-size: 25px;
 }
 
-.logo-container > img {
-  width: 72%;
+.home-feed__results__result-card__bottom-row__author {
+  color: white;
+  font-size: 16px;
+}
+
+.home-feed__results__result-card__bottom-row__descr {
+  width: 581px;
+  word-wrap: break-word;
+  color: white;
+  font-size: 14px;
 }
 /*# sourceMappingURL=HomePage.css.map */
