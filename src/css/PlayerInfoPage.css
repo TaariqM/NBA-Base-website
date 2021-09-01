@@ -79,7 +79,7 @@
 
 .player-info__result-card__top-row__mid-col__left-side p {
   color: white;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .player-info__result-card__top-row__mid-col__right-side {
@@ -95,7 +95,7 @@
 .player-info__result-card__top-row__mid-col__right-side p {
   margin-top: 14px;
   color: white;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .player-info__result-card__top-row__right-col {
@@ -116,7 +116,7 @@
 
 .player-info__result-card__top-row__right-col p {
   color: white;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .player-info__result-card__top-row__second-right-col {
@@ -132,7 +132,7 @@
 
 .player-info__result-card__top-row__second-right-col p {
   color: white;
-  font-size: 25px;
+  font-size: 20px;
   margin-top: 31px;
 }
 

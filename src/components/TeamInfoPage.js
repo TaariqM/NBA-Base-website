@@ -59,7 +59,7 @@ const TeamInfoPage = () => {
                   }
                 </p>
                 <p>
-                  Nick Name:{" "}
+                  Nickname:{" "}
                   {
                     getEastBasicInfo(eastTeams[parseInt(team_index)].teamId)
                       .nickname
@@ -175,7 +175,7 @@ const TeamInfoPage = () => {
                   }
                 </p>
                 <p>
-                  Nick Name:{" "}
+                  Nickname:{" "}
                   {
                     getWestBasicInfo(westTeams[parseInt(team_index)].teamId)
                       .nickname
